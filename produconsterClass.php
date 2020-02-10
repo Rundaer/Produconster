@@ -1,5 +1,5 @@
 <?php
-/** 
+/*
 * 2007-2020 PrestaShop
 *
 * NOTICE OF LICENSE
@@ -24,7 +24,7 @@
 *  International Registered Trademark & Property of PrestaShop SA
 */
 
-class ProduconsterClass extends ObjectModel
+class produconsterClass extends ObjectModel
 {
     /** @var integer produconster id*/
     public $id;
@@ -37,7 +37,6 @@ class ProduconsterClass extends ObjectModel
 
     /** @var int produconster position*/
     public $position;
-
     /** @var string produconster description */
     public $description_first;
 
@@ -75,8 +74,8 @@ class ProduconsterClass extends ObjectModel
             $languages = Language::getLanguages(false);
             foreach ($languages as $language) {
                 foreach ($this->fieldsValidateLang as $field => $validation) {
-                    if (Tools::getIsset(Tools::getValue($field.'_'.(int)($language['id_lang'])))) {
-                        $this->{$field}[(int)($language['id_lang'])] = Tools::getValue($field.'_'.(int)($language['id_lang']));
+                    if (isset($_POST[$field.'_'.(int)($language['id_lang'])])) {
+                        $this->{$field}[(int)($language['id_lang'])] = $_POST[$field.'_'.(int)($language['id_lang'])];
                     }
                 }
             }

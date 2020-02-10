@@ -36,5 +36,4 @@
                 {/if}
             </div>
     {/foreach}
-    {$test|print_r}
 </div>

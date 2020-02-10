@@ -126,7 +126,6 @@ class Crea_produconster extends Module
     
             $this->context->smarty->assign(
                 array(
-                    'test' => $this->context->controller->php_self,
                     'items' => $items,
                 )
             );
